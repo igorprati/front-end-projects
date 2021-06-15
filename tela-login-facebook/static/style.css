@@ -1,0 +1,182 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+    /* border: 1px solid black; */
+}
+
+.container{
+    margin: 0 auto;
+    padding: 0 2%;
+    max-width: 960px;
+    margin-top: 160px;
+    margin-bottom: 150px;
+    
+}
+
+.flex{
+    display: flex;
+}
+
+html, body{
+    background-color: #F0F2F5;
+    height: 100vh;
+    overflow-x: hidden;
+}
+main{
+    position: relative;
+    z-index: 1;
+}
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+/*  */
+/*  */
+.box-facebook{
+    padding-right: 50px;
+}
+.box-facebook img{
+    width: 350px;
+    margin-left: -33px;
+    margin-bottom: -10px;
+    margin-top: 50px;
+}
+
+.box-facebook h1{
+    font-weight: 400;
+    font-size: 28px;
+}
+/*  */
+/*  */
+.box-form{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding: 30px 15px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.137);
+}
+
+.box-form input{
+    padding: 12px 10px;
+    margin-bottom: 15px;
+    outline: none;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#logar{
+    padding: 12px 10px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: #1877F2;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    width: 330px;
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+}
+
+.box-form a{
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgb(223, 223, 223);
+    color: #1877F2;
+    font-size: 14px;
+}
+
+#criar-conta{
+    padding: 12px 10px;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    margin: 0 70px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #42B72A;
+}
+
+.box-login p{
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.box-login p a{
+    color: black;
+    font-weight: bold;
+}
+/*  */
+/*  */
+footer{
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    height: 230px;
+    background-color: white;
+}
+
+footer .container{
+    margin-top: 10px;
+}
+
+.footer1 li:first-child{
+    color: rgb(114, 114, 114);
+}
+.footer1 li{
+    margin-top: 10px;
+    display: inline-block;
+    margin-right: 7px;
+}
+.footer1{
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    font-size: 13px;
+    border-bottom: 1px solid rgb(226, 226, 226);
+}
+
+.footer2 li{
+    display: inline-block;
+    margin-right: 15px;
+    line-height: 5px;
+}
+
+.footer2{
+    font-size: 13px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+.footer2 p{
+    margin-top: 10px;
+    color: rgb(114, 114, 114);
+}
+
+@media only screen and (max-width: 768px){
+    .flex{
+        display: block;
+        margin: 0 30px;
+    }
+    .box-form{
+        margin-top: 30px;
+        text-align: center;
+    }
+    #logar{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
