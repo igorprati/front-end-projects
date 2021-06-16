@@ -1,0 +1,518 @@
+/* 
+    super-mario: https://www.imagenspng.com.br/wp-content/uploads/2015/02/super-mario-mario-12.png
+
+
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Abel';
+    letter-spacing: 0.1rem;
+    /* border: 1px solid black; */
+}
+
+html{
+    font-size: 18px;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-image: url('https://i.pinimg.com/originals/89/52/38/8952383f97eaf04f1ee755931bcaca39.jpg');
+    background-repeat: no-repeat;
+    /* overflow: hidden; */
+}
+.calcular-dano{
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    position: fixed;
+    border-radius: 50%;
+    bottom: 30px;
+    right: 20px;
+    z-index: 4;
+
+}
+html::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(
+        #D3CCE3,
+        #E9E4F0
+    );
+    opacity: 0.7;
+    backdrop-filter: blur(0.5em);
+    position: absolute;
+    z-index: -1;
+}
+
+@media only screen and (max-width: 1036px){
+    main{
+        height: 100%;
+    }
+    html{
+        background-size: cover;
+        height: auto;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    html::after{
+        position: fixed;
+    }
+    body{
+        overflow: auto;
+    }
+    .box{
+        flex-direction: column;
+        align-items: center;
+    }
+    .box-left,
+    .card-inimigo,
+    .card-poder{
+        margin-top: 20px;
+    }
+
+}
+
+main{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* overflow: hidden; */
+    position: relative;
+    z-index: 2;
+}
+
+main .box{
+    background-image: linear-gradient(
+        to top right,
+        rgba(255, 255, 255, 0.144),
+        rgba(255, 255, 255, 0.63)
+        );
+    position: relative;
+    width: 1080px;
+    height: 100%;
+    margin: 2%;
+    border-radius: 1rem;
+    z-index: 2;
+    backdrop-filter: blur(1rem);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px 0;
+    padding-left: 20px;
+}
+
+main .box .box-left{
+    width: 350px;
+    background-image: linear-gradient(
+        to top right,
+        #d9a7c7,
+        #fffcdc
+        );
+    border-radius: 1rem;
+    padding: 30px 20px;
+}
+
+.box .box-left .personagem{
+    text-align: center;
+}
+
+.personagem-info{
+    margin-top: 1rem;
+    border-radius: 1rem;
+    height: 450px;
+}
+
+.personagem-info h2{
+    font-size: 1rem;
+    color: white;
+    text-shadow: 5px 2px 5px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    margin-left: 10%;
+}
+
+.personagem-info .atributo:first-child h2{
+    font-size: 1.8rem;
+    color: white;
+    text-shadow: 5px 2px 5px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    margin-left: 0;
+}
+
+.personagem-info .atributo{
+    margin-top: 2.5rem;
+}
+
+.personagem-info .atributo .barra{
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    height: 1.4rem;
+    border-radius: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.personagem-info .atributo .velocidade::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 2rem;
+    left: -20%;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 1.4rem;
+}
+
+.personagem-info .atributo .destreza::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 2rem;
+    left: -50%;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 1.4rem;
+}
+
+.personagem-info .atributo .inteligencia::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 2rem;
+    left: -80%;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 1.4rem;
+}
+/*  */
+
+/* BOX RIGHT */
+
+/*  */
+.box-right{
+    width: calc(100% - 350px);
+    min-width: 350px;
+}
+.card-inimigo:hover,
+.card-poder:hover{
+    transform: scale(1.05);
+}
+
+/* OCTOPUS */
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+}
+.inimigos{
+    /* margin-top: 1rem; */
+    width: 100%;
+}
+
+.inimigos h1{
+    color: white;
+    text-shadow: 5px 2px 5px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.card-inimigo{
+    width: 200px;
+    background-image: linear-gradient(
+        to top right,
+        #d9a7c7,
+        #fffcdc
+        );
+    height: 100%;
+    border-radius: 1rem;
+    padding: 30px 20px;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.card-inimigo h2{
+    font-size: 1.8rem;
+    text-align: center;
+    color: white;
+    text-shadow: 5px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.card-inimigo h2:first-child{
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+.cards{
+    margin-top: 1rem;
+}
+
+.box-right .atributo .barra{
+    margin-top: 0.5rem;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    height: 0.9rem;
+    border-radius: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* OCTOPUS */
+.octopus .atributo .velocidade::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    left: -70%;
+    border-radius: 1rem;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 0.9rem;
+}
+.octopus .atributo .inteligencia::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    left: -50%;
+    border-radius: 1rem;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 0.9rem;
+}
+.octopus .atributo .destreza::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    left: -30%;
+    border-radius: 1rem;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 0.9rem;
+}
+/* OCTOPUS */
+
+/* GOOMBA */
+.goomba .atributo .velocidade::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    left: -80%;
+    border-radius: 1rem;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 0.9rem;
+}
+.goomba .atributo .inteligencia::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    left: -10%;
+    border-radius: 1rem;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 0.9rem;
+}
+.goomba .atributo .destreza::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    left: -60%;
+    border-radius: 1rem;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 0.9rem;
+}
+/* GOOMBA */
+
+/* KOOPA */
+.koopa .atributo .velocidade::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    left: -20%;
+    border-radius: 1rem;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 0.9rem;
+}
+.koopa .atributo .inteligencia::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    left: -50%;
+    border-radius: 1rem;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 0.9rem;
+}
+.koopa .atributo .destreza::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    left: -85%;
+    border-radius: 1rem;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 0.9rem;
+}
+/* KOOPA */
+
+.escolha h1{
+    color: white;
+    text-shadow: 5px 2px 5px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* PODERES */
+.poderes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.card-poder{
+    width: 200px;
+    background-image: linear-gradient(
+        to top right,
+        #d9a7c7,
+        #fffcdc
+        );
+    height: 100%;
+    border-radius: 1rem;
+    padding: 30px 20px;
+    text-align: center;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.card-poder h2{
+    font-size: 1.8rem;
+    text-align: center;
+    color: white;
+    text-shadow: 5px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.card-poder h2:first-child{
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+.yoshi .atributo .velocidade::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    left: -40%;
+    border-radius: 1rem;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 0.9rem;
+}
+
+.fogo .atributo .velocidade::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    left: -20%;
+    border-radius: 1rem;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 0.9rem;
+}
+
+.pular .atributo .velocidade::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    left: -20%;
+    border-radius: 1rem;
+    background-image: linear-gradient(
+        to right,
+        #8360c3,
+        #2ebf91
+    );
+    height: 0.9rem;
+}
+/* PODERES */
+
+
+
