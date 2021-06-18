@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+
+html{
+    background-image: url('https://cdn.hipwallpaper.com/i/49/85/M8lJOY.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 100%;
+    min-height: 100%;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+html::after{
+    content: '';
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    background-attachment: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    backdrop-filter: blur(8px);
+}
+
+section{
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+}
+
+h1{
+    margin-top: 20px;
+}
+.inimigos,
+.armas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+img{
+    border-radius: 10px 10px 0 0;
+}
+
+.inimigo,
+.arma{
+    margin: 0 20px;
+    text-align: center;
+    padding-bottom: 40px;
+    background-color: blanchedalmond;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 10px;
+    backface-visibility: hidden;
+}
+
+.inimigo:hover,
+.arma:hover{
+    transform: scale(1.05);
+}
+
+.inimigo-selecionado,
+.arma-selecionada{
+    border-bottom: 10px solid tomato;
+    transform: scale(1.05);
+}
+
+.botao{
+    text-align: center;
+    margin-top: 50px;
+}
+
+#botao{
+    padding: 15px 80px ;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 200ms;
+    border: none;
+    background-color: rgb(31, 168, 86);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.137);
+    color: white;
+    font-size: 20px;
+}
+
+#botao:hover{
+    transform: scale(1.05);
+}
+

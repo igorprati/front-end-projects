@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Calculadora nova</title>
+</head>
+<body>
+
+    <div class="bg"></div>
+
+    <section>
+        
+        <div class="inimigos">
+
+            {% for inimigo in inimigos %}
+
+            <div id="inimigo" class="inimigo" data-vida="{{inimigo.vida}}" data-nome="{{inimigo.nome}}">
+                <img src="{{inimigo.foto}}" width="200px" height="200px" alt="">
+                <h1>{{inimigo.nome}}</h1>
+            </div><!--INIMIGO-->
+            
+
+            {% endfor %}
+
+        </div> <!--INIMIGOS-->
+
+
+        <div class="armas">
+
+        {% for arma in armas %}
+
+            <div id="arma" class="arma" data-dano="{{arma.dano}}" data-nome="{{arma.nome}}">
+                <img src="{{arma.foto}}" width="200px" height="200px" alt="">
+                <h1>{{arma.nome}}</h1>
+            </div><!--ARMA-->
+
+            {% endfor %}
+        </div><!--ARMAS-->
+
+
+        <div class="botao">
+            <button id="botao" onclick="calcularDano()"><i class="fa fa-calculator"></i> Calcular Dano</button>
+        </div>
+
+    </section> <!-- SEÇÃO COM MEUS INIMIGOS E MINHAS ARMAS-->
+
+    
+
+
+
+
+
+<script type="text/javascript" src="../static/index.js"></script>
+</body>
+</html>
